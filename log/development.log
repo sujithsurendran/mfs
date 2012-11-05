@@ -1,0 +1,302 @@
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-02 15:14:07 +0530
+Served asset /rails.png - 200 OK (10ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at 2012-11-02 15:14:10 +0530
+Processing by Rails::InfoController#properties as HTML
+  Rendered inline template (10.2ms)
+Completed 200 OK in 91ms (Views: 88.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-02 15:15:12 +0530
+Served asset /rails.png - 304 Not Modified (4ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at 2012-11-02 15:15:14 +0530
+Processing by Rails::InfoController#properties as HTML
+  Rendered inline template (4.2ms)
+Completed 200 OK in 52ms (Views: 50.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-03 14:01:53 +0530
+Served asset /rails.png - 304 Not Modified (4ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at 2012-11-03 14:01:54 +0530
+Processing by Rails::InfoController#properties as HTML
+  Rendered inline template (4.2ms)
+Completed 200 OK in 53ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (110.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (100.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (13.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.9ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'schema_migrations'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36m (74.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-11-03 14:57:00 +0530
+Processing by ProgramsController#index as HTML
+PG::Error: ERROR:  relation "programs" does not exist
+LINE 4:              WHERE a.attrelid = '"programs"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"programs"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (PG::Error: ERROR:  relation "programs" does not exist
+LINE 4:              WHERE a.attrelid = '"programs"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"programs"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+):
+  app/controllers/programs_controller.rb:5:in `index'
+
+
+  Rendered /home/student/.rvm/gems/ruby-1.9.2-p320@mfs321/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (11.0ms)
+  Rendered /home/student/.rvm/gems/ruby-1.9.2-p320@mfs321/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /home/student/.rvm/gems/ruby-1.9.2-p320@mfs321/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.1ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreatePrograms (20121103092630)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (84.2ms)[0m  [1mCREATE TABLE "programs" ("id" serial primary key, "name" character varying(255), "qualification" character varying(255), "syllabus_detailed" text, "duration" character varying(255), "fees" character varying(255), "timing" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121103092630')
+  [1m[36m (16.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (2.1ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'programs'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-11-03 14:57:32 +0530
+Processing by ProgramsController#index as HTML
+  [1m[36mProgram Load (0.6ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered programs/index.html.erb within layouts/application (5.5ms)
+Compiled programs.css  (42ms)  (pid 16652)
+Compiled scaffolds.css  (30ms)  (pid 16652)
+Compiled application.css  (145ms)  (pid 16652)
+Compiled jquery.js  (19ms)  (pid 16652)
+Compiled jquery_ujs.js  (1ms)  (pid 16652)
+Compiled programs.js  (128ms)  (pid 16652)
+Compiled application.js  (288ms)  (pid 16652)
+Completed 200 OK in 591ms (Views: 588.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-03 14:57:34 +0530
+Served asset /application.css - 200 OK (21ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-03 14:57:34 +0530
+Served asset /jquery.js - 200 OK (10ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-03 14:57:34 +0530
+Served asset /scaffolds.css - 200 OK (3ms)
+
+
+Started GET "/assets/programs.css?body=1" for 127.0.0.1 at 2012-11-03 14:57:34 +0530
+Served asset /programs.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-03 14:57:34 +0530
+Served asset /jquery_ujs.js - 200 OK (13ms)
+
+
+Started GET "/assets/programs.js?body=1" for 127.0.0.1 at 2012-11-03 14:57:34 +0530
+Served asset /programs.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-03 14:57:34 +0530
+Served asset /application.js - 200 OK (11ms)
+
+
+Started GET "/programs/new" for 127.0.0.1 at 2012-11-03 14:57:37 +0530
+Processing by ProgramsController#new as HTML
+  Rendered programs/_form.html.erb (51.3ms)
+  Rendered programs/new.html.erb within layouts/application (120.2ms)
+Completed 200 OK in 147ms (Views: 128.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-03 14:57:37 +0530
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-03 14:57:37 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/programs.js?body=1" for 127.0.0.1 at 2012-11-03 14:57:37 +0530
+Served asset /programs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-03 14:57:37 +0530
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-03 14:57:37 +0530
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/programs.css?body=1" for 127.0.0.1 at 2012-11-03 14:57:37 +0530
+Served asset /programs.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-03 14:57:37 +0530
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started POST "/programs" for 127.0.0.1 at 2012-11-03 14:58:04 +0530
+Processing by ProgramsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NvMLTRP2v5WFSufR2firS4cI72mSFlRjywA0RgQH3vk=", "program"=>{"name"=>"DCA", "qualification"=>"Plus 2", "syllabus_detailed"=>"djkf skdjh skdjfhs dkfjhsd fkjshdf ksjdfh skdjfhs dkjfh", "duration"=>"10 hours", "fees"=>"1000", "timing"=>"morning"}, "commit"=>"Create Program"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (55.3ms)[0m  [1mINSERT INTO "programs" ("created_at", "duration", "fees", "name", "qualification", "syllabus_detailed", "timing", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Sat, 03 Nov 2012 09:28:04 UTC +00:00], ["duration", "10 hours"], ["fees", "1000"], ["name", "DCA"], ["qualification", "Plus 2"], ["syllabus_detailed", "djkf skdjh skdjfhs dkfjhsd fkjshdf ksjdfh skdjfhs dkjfh"], ["timing", "morning"], ["updated_at", Sat, 03 Nov 2012 09:28:04 UTC +00:00]]
+  [1m[35m (22.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/programs/1
+Completed 302 Found in 87ms (ActiveRecord: 78.3ms)
+
+
+Started GET "/programs/1" for 127.0.0.1 at 2012-11-03 14:58:04 +0530
+Processing by ProgramsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProgram Load (0.9ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered programs/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 18ms (Views: 13.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-03 14:58:05 +0530
+Served asset /application.css - 304 Not Modified (31ms)
+
+
+Started GET "/assets/programs.css?body=1" for 127.0.0.1 at 2012-11-03 14:58:05 +0530
+Served asset /programs.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-03 14:58:05 +0530
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/programs.js?body=1" for 127.0.0.1 at 2012-11-03 14:58:05 +0530
+Served asset /programs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-03 14:58:05 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-03 14:58:05 +0530
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-03 14:58:05 +0530
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-11-03 15:08:55 +0530
+Processing by ProgramsController#index as HTML
+  [1m[36mProgram Load (1.0ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered programs/index.html.erb within layouts/application (42.8ms)
+Completed 200 OK in 106ms (Views: 89.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-03 15:08:55 +0530
+Served asset /application.css - 200 OK (11ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-03 15:08:55 +0530
+Served asset /application.js - 200 OK (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-03 15:08:55 +0530
+Served asset /jquery_ujs.js - 200 OK (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-03 15:08:55 +0530
+Served asset /scaffolds.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-03 15:08:55 +0530
+Served asset /jquery.js - 200 OK (9ms)
+
+
+Started GET "/assets/programs.js?body=1" for 127.0.0.1 at 2012-11-03 15:08:57 +0530
+Served asset /programs.js - 200 OK (6ms)
+
+
+Started GET "/assets/programs.css?body=1" for 127.0.0.1 at 2012-11-03 15:08:57 +0530
+Served asset /programs.css - 200 OK (7ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-11-03 15:09:13 +0530
+Served asset /rails.png - 200 OK (2ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at 2012-11-03 15:09:14 +0530
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Processing by Rails::InfoController#properties as HTML
+  Rendered inline template (4.0ms)
+Completed 200 OK in 53ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-11-05 10:36:55 +0530
+Processing by ProgramsController#index as HTML
+  [1m[36mProgram Load (13.9ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered programs/index.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 212ms (Views: 174.4ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/assets/programs.css?body=1" for 127.0.0.1 at 2012-11-05 10:36:56 +0530
+Served asset /programs.css - 200 OK (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-11-05 10:36:56 +0530
+Served asset /scaffolds.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-05 10:36:56 +0530
+Served asset /jquery_ujs.js - 200 OK (5ms)
+
+
+Started GET "/assets/programs.js?body=1" for 127.0.0.1 at 2012-11-05 10:36:56 +0530
+Served asset /programs.js - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-05 10:36:57 +0530
+Served asset /jquery.js - 200 OK (8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-11-05 10:36:58 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-11-05 10:36:58 +0530
+Served asset /application.css - 200 OK (10ms)
+Served asset /application.js - 200 OK (13ms)

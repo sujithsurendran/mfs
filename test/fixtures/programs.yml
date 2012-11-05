@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  qualification: MyString
+  syllabus_detailed: MyText
+  duration: MyString
+  fees: MyString
+  timing: MyString
+
+two:
+  name: MyString
+  qualification: MyString
+  syllabus_detailed: MyText
+  duration: MyString
+  fees: MyString
+  timing: MyString

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @program.name %>
+</p>
+
+<p>
+  <b>Qualification:</b>
+  <%= @program.qualification %>
+</p>
+
+<p>
+  <b>Syllabus detailed:</b>
+  <%= @program.syllabus_detailed %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @program.duration %>
+</p>
+
+<p>
+  <b>Fees:</b>
+  <%= @program.fees %>
+</p>
+
+<p>
+  <b>Timing:</b>
+  <%= @program.timing %>
+</p>
+
+
+<%= link_to 'Edit', edit_program_path(@program) %> |
+<%= link_to 'Back', programs_path %>
