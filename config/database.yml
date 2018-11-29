@@ -3,5 +3,5 @@ development:
   encoding: unicode
   database: msf_development
   pool: 5
-  username: postgres
-  password: student@pgsql
+  username: dbUserName
+  password: dbPassword
